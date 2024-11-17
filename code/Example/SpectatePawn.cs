@@ -1,7 +1,7 @@
 namespace ShrimplePawns.Example;
 
 [Pawn( "spectate.prefab" )]
-public sealed class SpectatePawn : ShrimplePawns.Pawn
+public sealed class SpectatePawn : Pawn
 {
 	[RequireComponent]
 	public CameraComponent CameraComponent { get; set; }
