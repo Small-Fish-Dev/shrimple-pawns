@@ -31,6 +31,14 @@ public abstract class Client : Component
 	}
 
 	/// <summary>
+	/// Get the pawn.
+	/// </summary>
+	public Pawn GetPawn()
+	{
+		return Pawn;
+	}
+
+	/// <summary>
 	/// Assigns the given connection as the client's current connection.
 	/// This connection will be used to give ownership to any future assigned pawns.
 	/// This must be called on the host!
