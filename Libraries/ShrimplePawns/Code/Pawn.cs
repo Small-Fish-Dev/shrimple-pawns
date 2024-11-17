@@ -26,6 +26,14 @@ public abstract class Pawn : Component
 	}
 
 	/// <summary>
+	/// Get the owner.
+	/// </summary>
+	public Client GetClient()
+	{
+		return Owner;
+	}
+
+	/// <summary>
 	/// Called when the pawn has been assigned.
 	/// </summary>
 	public virtual void OnAssign( Client client )
