@@ -14,7 +14,7 @@ public abstract class Client : Component
 	public Connection Connection => Connection.Find( ConnectionId );
 
 	/// <summary>
-	/// Get the pawn and verify it is valid.
+	/// Get the pawn only if it is valid.
 	/// </summary>
 	public bool TryGetPawn<T>( out T pawn ) where T : Pawn
 	{

@@ -9,7 +9,7 @@ public abstract class Pawn : Component
 	protected Client Owner { get; set; }
 
 	/// <summary>
-	/// Get the owner and verify it is valid.
+	/// Get the owner only if it is valid.
 	/// </summary>
 	public bool TryGetOwner<T>( out T owner ) where T : Client
 	{
