@@ -28,7 +28,7 @@ public abstract class Pawn : Component
 	/// <summary>
 	/// Get the owner.
 	/// </summary>
-	public Client GetClient()
+	public Client GetOwner()
 	{
 		return Owner;
 	}
