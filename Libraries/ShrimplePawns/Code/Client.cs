@@ -89,6 +89,12 @@ public abstract class Client : Component
 
 	private Pawn InternalAssign( GameObject obj )
 	{
+		if ( !Connection.Local?.IsHost ?? false )
+		{
+			Log.Warning( "Attempting to assign pawn on non-host client!" );
+			return null;
+		}
+
 		var pawn = obj.Components.Get<Pawn>();
 		if ( !pawn.IsValid() )
 		{
