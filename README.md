@@ -19,7 +19,7 @@ public sealed class SpectatePawn : Pawn
 ```
 
 ```csharp
-// All of the following code be called on the host! Since we use [HostSync] internally.
+// All of the following code should be called on the host! Since we use [HostSync] internally.
 //
 // Setup and assign the client a connection.
 var client = clientObj.Components.Get<Client>();
