@@ -34,6 +34,11 @@ client.AssignPawn<SpectatePawn>();
 // Option #2
 // The pawn component does NOT need PawnAttribute in this case.
 client.AssignPawn(SpectatePrefab);
+
+// Option #3
+// The gameobject already exists and you want to assign it
+var obj = SceneUtility.GetPrefabScene( SpectatePrefab ).Clone();
+client.AssignPawn(obj);
 ```
 
 [A full example can be viewed here.](https://github.com/Small-Fish-Dev/shrimple_pawns/tree/main/code/Example)

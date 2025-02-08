@@ -61,10 +61,10 @@ public abstract class Client : Component
 	/// This must be called on the host!
 	/// </summary>
 	/// <param name="prefabFile">The prefab file that is used to create the pawn.</param>
-	public void AssignPawn( PrefabFile prefabFile )
+	public Pawn AssignPawn( PrefabFile prefabFile )
 	{
 		var obj = SceneUtility.GetPrefabScene( prefabFile ).Clone();
-		InternalAssign( obj );
+		return InternalAssign( obj );
 	}
 
 	/// <summary>
@@ -86,6 +86,16 @@ public abstract class Client : Component
 
 		var obj = SceneUtility.GetPrefabScene( ResourceLibrary.Get<PrefabFile>( path ) ).Clone();
 		return InternalAssign<T>( obj ); ;
+	}
+
+	/// <summary>
+	/// Takes a <see cref="GameObject" /> that already exists, networked spawns it, and assigns it to the client.
+	/// This must be called on the host!
+	/// </summary>
+	/// <param name="obj">The pawn game object that will be networked spawned and assigned to the client.</param>
+	public Pawn AssignPawn( GameObject obj )
+	{
+		return InternalAssign( obj );
 	}
 
 	private T InternalAssign<T>( GameObject obj ) where T : Pawn
@@ -117,7 +127,9 @@ public abstract class Client : Component
 			Log.Warning( $"Client does not have a connection assigned! Defaulting to host." );
 
 		var assignedConnection = Connection ?? Connection.Host;
-		obj.NetworkSpawn( assignedConnection );
+
+		if ( obj.Network.Active )
+			obj.NetworkSpawn( assignedConnection );
 		obj.Name = $"{assignedConnection.DisplayName} - {obj.Name.ToUpper()} Pawn";
 
 		Pawn = pawn;
