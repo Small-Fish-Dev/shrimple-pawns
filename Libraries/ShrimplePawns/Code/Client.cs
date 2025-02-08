@@ -130,6 +130,9 @@ public abstract class Client : Component
 
 		if ( !obj.Network.Active )
 			obj.NetworkSpawn( assignedConnection );
+		else
+			obj.Network.AssignOwnership( assignedConnection );
+
 		obj.Name = $"{assignedConnection.DisplayName} - {obj.Name.ToUpper()} Pawn";
 
 		Pawn = pawn;
