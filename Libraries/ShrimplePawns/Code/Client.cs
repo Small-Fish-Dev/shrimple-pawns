@@ -128,7 +128,7 @@ public abstract class Client : Component
 
 		var assignedConnection = Connection ?? Connection.Host;
 
-		if ( obj.Network.Active )
+		if ( !obj.Network.Active )
 			obj.NetworkSpawn( assignedConnection );
 		obj.Name = $"{assignedConnection.DisplayName} - {obj.Name.ToUpper()} Pawn";
 
