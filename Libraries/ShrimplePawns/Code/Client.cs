@@ -5,10 +5,10 @@ namespace ShrimplePawns;
 /// </summary>
 public abstract class Client : Component
 {
-	[HostSync]
+	[Sync( SyncFlags.FromHost )]
 	public System.Guid ConnectionId { get; private set; }
 
-	[HostSync]
+	[Sync( SyncFlags.FromHost )]
 	protected Pawn Pawn { get; set; }
 
 	public Connection Connection => Connection.Find( ConnectionId );
@@ -46,6 +46,12 @@ public abstract class Client : Component
 	/// <param name="connection">The connection to assign to the client.</param>
 	public void AssignConnection( Connection connection )
 	{
+		if ( !Connection.Local.IsHost )
+		{
+			Log.Warning( "Attempted to call AssignConnection(...) on non-host client!" );
+			return;
+		}
+
 		ConnectionId = connection.Id;
 		GameObject.Name = $"{Connection.DisplayName} - CLIENT";
 	}
@@ -91,7 +97,8 @@ public abstract class Client : Component
 	{
 		if ( !Connection.Local?.IsHost ?? false )
 		{
-			Log.Warning( "Attempting to assign pawn on non-host client!" );
+			obj.Destroy();
+			Log.Warning( "Attempted to call AssignPawn(...) on non-host client!" );
 			return null;
 		}
 
@@ -107,7 +114,7 @@ public abstract class Client : Component
 			Pawn.OnUnassign();
 
 		if ( Connection is null )
-			Log.Warning( $"Client does not have a connection! Assigning to host." );
+			Log.Warning( $"Client does not have a connection assigned! Defaulting to host." );
 
 		var assignedConnection = Connection ?? Connection.Host;
 		obj.NetworkSpawn( assignedConnection );

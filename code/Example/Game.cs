@@ -14,6 +14,7 @@ public sealed class Game : Component, Component.INetworkListener
 			Networking.CreateLobby( new Sandbox.Network.LobbyConfig() );
 	}
 
+	// This gets called only on the host!
 	public void OnActive( Connection channel )
 	{
 		var clientObj = SceneUtility.GetPrefabScene( ClientPrefab ).Clone();
