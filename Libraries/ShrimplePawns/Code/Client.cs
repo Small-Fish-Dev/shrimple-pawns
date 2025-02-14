@@ -53,7 +53,7 @@ public abstract class Client : Component
 		}
 
 		ConnectionId = connection.Id;
-		GameObject.Name = $"{Connection.DisplayName} - CLIENT";
+		GameObject.Name = $"{connection.DisplayName} - CLIENT";
 	}
 
 	/// <summary>
