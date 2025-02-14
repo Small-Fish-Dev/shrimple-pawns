@@ -48,7 +48,13 @@ public abstract class Client : Component
 	{
 		if ( !Connection.Local.IsHost )
 		{
-			Log.Warning( "Attempted to call AssignConnection(...) on non-host client!" );
+			Log.Warning( "Failed to call AssignConnection(...) due to being invoked on non-host client!" );
+			return;
+		}
+
+		if ( connection == null )
+		{
+			Log.Warning( "Failed to call AssignConnection(...) due to null connection param!" );
 			return;
 		}
 
