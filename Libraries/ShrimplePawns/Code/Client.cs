@@ -129,9 +129,6 @@ public abstract class Client : Component
 		if ( Pawn.IsValid() )
 			Pawn.OnUnassign();
 
-		if ( Connection is null )
-			Log.Warning( $"Client does not have a connection assigned! Defaulting to host." );
-
 		var assignedConnection = Connection ?? Connection.Host;
 
 		if ( !obj.Network.Active )
