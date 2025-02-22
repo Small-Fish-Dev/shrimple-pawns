@@ -1,0 +1,15 @@
+{
+  "Title": "Shrimple Pawns",
+  "Type": "library",
+  "Org": "fish",
+  "Ident": "sp",
+  "Schema": 1,
+  "IncludeSourceFiles": false,
+  "Resources": null,
+  "PackageReferences": [],
+  "EditorReferences": null,
+  "IsWhitelistDisabled": false,
+  "Metadata": {
+    "CsProjName": ""
+  }
+}
