@@ -1,0 +1,20 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+  </Configurations>
+  <Project Path="Code/pawn_example.csproj" />
+  <Project Path="Editor/pawn_example.editor.csproj" />
+  <Folder Name="/Addons/">
+    <Project Path="C:/Program Files (x86)/Steam/steamapps/common/sbox/addons/base/Code/Base Library.csproj" />
+  </Folder>
+  <Folder Name="/Libraries/">
+    <Project Path="Libraries/ShrimplePawns/Code/sp.csproj" />
+  </Folder>
+  <Folder Name="/Tools/">
+    <Project Path="C:/Program Files (x86)/Steam/steamapps/common/sbox/addons/tools/Code/Base Editor Library.csproj" />
+    <Project Path="C:/Program Files (x86)/Steam/steamapps/common/sbox/editor/ActionGraph/Code/actiongraph.csproj" />
+    <Project Path="C:/Program Files (x86)/Steam/steamapps/common/sbox/editor/Hammer/Code/hammer.csproj" />
+    <Project Path="C:/Program Files (x86)/Steam/steamapps/common/sbox/editor/MovieMaker/Code/moviemaker.csproj" />
+    <Project Path="C:/Program Files (x86)/Steam/steamapps/common/sbox/editor/ShaderGraph/Code/shadergraph.csproj" />
+  </Folder>
+</Solution>

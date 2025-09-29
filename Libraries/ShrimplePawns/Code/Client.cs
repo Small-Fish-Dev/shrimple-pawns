@@ -136,7 +136,7 @@ public abstract class Client : Component
 		else
 			obj.Network.AssignOwnership( assignedConnection );
 
-		obj.Name = $"{assignedConnection.DisplayName} - {obj.Name.ToUpper()} Pawn";
+		obj.Name = $"{assignedConnection.DisplayName} - PAWN";
 
 		Pawn = pawn;
 		Pawn.OnAssign( this );
