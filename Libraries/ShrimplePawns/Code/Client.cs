@@ -59,15 +59,6 @@ public abstract class Client : Component
 		}
 
 		ConnectionId = connection.Id;
-		OnAssignConnection( connection );
-	}
-
-	/// <summary>
-	/// If you want to do something when a connection is assigned, override this method.
-	/// </summary>
-	/// <param name="connection">The connection to assign to the client.</param>
-	protected virtual void OnAssignConnection( Connection connection )
-	{
 		GameObject.Name = $"{connection.DisplayName} - CLIENT";
 	}
 
@@ -144,6 +135,8 @@ public abstract class Client : Component
 			obj.NetworkSpawn( assignedConnection );
 		else
 			obj.Network.AssignOwnership( assignedConnection );
+
+		obj.Name = $"{assignedConnection.DisplayName} - PAWN";
 
 		Pawn = pawn;
 		Pawn.OnAssign( this );

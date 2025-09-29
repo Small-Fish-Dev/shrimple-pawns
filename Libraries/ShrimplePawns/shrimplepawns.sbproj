@@ -8,8 +8,7 @@
   "Resources": null,
   "PackageReferences": [],
   "EditorReferences": null,
-  "Mounts": null,
-  "IsStandaloneOnly": false,
+  "IsWhitelistDisabled": false,
   "Metadata": {
     "CsProjName": ""
   }

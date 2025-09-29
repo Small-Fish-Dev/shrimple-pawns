@@ -5,19 +5,12 @@ namespace ShrimplePawns;
 /// </summary>
 public abstract class Pawn : Component
 {
-	private string _spawnedName;
-
-	protected override void OnStart()
-	{
-		_spawnedName = GameObject.Name;
-	}
-
 	/// <summary>
 	/// Called when the pawn has been assigned.
 	/// </summary>
 	public virtual void OnAssign( Client client )
 	{
-		GameObject.Name = $"{client.Connection.DisplayName} - {_spawnedName} PAWN";
+
 	}
 
 	/// <summary>
